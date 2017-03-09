@@ -30,7 +30,7 @@ def test_sigmoid_basic():
     Warning: these are not exhaustive.
     """
     print ("Running basic tests...")
-    x = np.array([[1, 2],
+    x = np.array([[ 1,  2],
                   [-1, -2]])
     f = sigmoid(x)
     g = sigmoid_grad(f)
