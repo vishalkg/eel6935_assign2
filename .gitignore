@@ -3,3 +3,5 @@
 /requirements.txt
 /*.swp
 /__pycache__/*
+/.project
+/.pydevproject
