@@ -25,8 +25,14 @@ def gradcheck_naive(f, x):
         ### YOUR CODE HERE:
         xh = np.zeros(x.shape)
         xh[ix] += h
+        
         random.setstate(rndstate)
-        numgrad = (f(x+xh)[0]-f(x-xh)[0])/(2*h)
+        f_p = f(x+xh)
+        
+        random.setstate(rndstate)
+        f_m = f(x-xh)
+        
+        numgrad = (f_p[0]-f_m[0])/(2*h)
         ### END YOUR CODE
 
         # Compare gradients
