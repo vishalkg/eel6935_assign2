@@ -1,7 +1,10 @@
-/big_data
+/big_data/*
+!/big_data/data_utils.py
+!/big_data/datasets/get_datasets.sh
 /.DS_Store
-/requirements.txt
 /*.swp
 /__pycache__/*
 /.project
 /.pydevproject
+/.settings/*
+
