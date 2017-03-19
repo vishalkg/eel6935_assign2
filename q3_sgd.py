@@ -1,5 +1,5 @@
 # Save parameters every a few SGD iterations as fail-safe
-SAVE_PARAMS_EVERY = 50#1000
+SAVE_PARAMS_EVERY = 1000
 
 import glob
 import random
