@@ -39,7 +39,7 @@ visualizeWords = ["the", "a", "an", ",", ".", "?", "!", "``", "''", "--",
 	"good", "great", "cool", "brilliant", "wonderful", "well", "amazing",
 	"worth", "sweet", "enjoyable", "boring", "bad", "waste", "dumb", 
 	"annoying"]
-visualizeIdx = [tokens[word.encode(encoding='UTF-8')] for word in visualizeWords]
+visualizeIdx = [tokens[word] for word in visualizeWords]
 visualizeVecs = wordVectors[visualizeIdx, :]
 temp = (visualizeVecs - np.mean(visualizeVecs, axis=0))
 covariance = 1.0 / len(visualizeIdx) * temp.T.dot(temp)

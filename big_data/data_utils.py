@@ -60,7 +60,7 @@ class StanfordSentiment:
 
                 splitted = line.strip().split()[1:]
                 # Deal with some peculiar encoding issues with this file
-                sentences += [[w.lower().encode('latin1') for w in splitted]]
+                sentences += [[w.lower().encode('latin-1') for w in splitted]]
                 
         self._sentences = sentences
         self._sentlengths = np.array([len(s) for s in sentences])
@@ -141,9 +141,16 @@ class StanfordSentiment:
         sentences = self.sentences()
         for i in range(self.numSentences()):
             sentence = sentences[i]
-            full_sent = " ".join(sentence).replace('-lrb-', '(').replace('-rrb-', ')')
-            sent_labels[i] = labels[dictionary[full_sent]]
-            
+            x = []
+            for j in range(len(sentence)):
+                try:
+                    x.append(sentence[j].decode('utf-8'))
+                except Exception:
+                    pass
+            #full_sent = " ".join(sentence).replace('-lrb-', '(').replace('-rrb-', ')')
+            if (len(x)==len(sentence)):
+                full_sent = " ".join(x).replace('-lrb-', '(').replace('-rrb-', ')')
+                sent_labels[i] = labels[int(dictionary[full_sent])]
         self._sent_labels = sent_labels
         return self._sent_labels
 
